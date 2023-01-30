@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container" ng-app="myApp" ng-controller="formController">
+      <div class="textintro">
+        <h1>Form Validation</h1>
+        <p ng-show="msg">{{msg}}</p>
+      </div>
+      <form name="myform" ng-submit="register()">
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          ng-model="user.firstname"
+          ng-required="true"
+        />
+        <p
+          class="error"
+          ng-show="myform.firstname.$invalid
+          &&
+          myform.firstname.$touched"
+        >
+          Fill out your first name
+        </p>
+        <input
+          type="text"
+          name="lastname"
+          placeholder="Last Name"
+          ng-model="user.lastname"
+          ng-required="true"
+        />
+        <p
+          class="error"
+          ng-show="myform.lastname.$invalid
+          &&
+          myform.lastname.$touched"
+        >
+          Fill out your last name
+        </p>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          ng-model="user.email"
+          ng-required="true"
+        />
+        <p
+          class="error"
+          ng-show="myform.email.$invalid
+          &&
+          myform.email.$touched"
+        >
+          Fill out your email
+        </p>
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          ng-model="user.password"
+          ng-minlength="6"
+          ng-required="true"
+        />
+        <p
+          class="error"
+          ng-show="myform.password.$invalid
+          &&
+          myform.password.$touched"
+        >
+          Password needs at least 6 characters long
+        </p>
+
+        <input
+          type="number"
+          name="phonenumber"
+          placeholder="Phone Number"
+          ng-model="user.phonenumber"
+          ng-required="true"
+        />
+        <p
+          class="error"
+          ng-show="myform.phonenumber.$invalid
+          &&
+          myform.phonenumber.$touched"
+        >
+          Type your phone number
+        </p>
+
+        <button type="submit" class="btn" ng-disabled="myform.$invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
